@@ -1,0 +1,32 @@
+<div class="admission-form-container container">
+  <h2 class="text-center mb-4">Take Admission</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-12">
+      <form [formGroup]="admissionForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input id="name" formControlName="name" type="text" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input id="email" formControlName="email" type="email" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="course" class="form-label">Course:</label>
+          <select id="course" formControlName="course" class="form-select">
+            <option *ngFor="let course of courses" [value]="course">{{ course }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="contact" class="form-label">Contact Number:</label>
+          <input id="contact" formControlName="contact" type="text" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="admissionForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
